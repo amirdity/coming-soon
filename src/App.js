@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Text from './text';
 function App() {
   class Car {
     constructor (name) {
@@ -38,7 +38,7 @@ function App() {
           FREE CODE CAMPE 
         </p>
         
-        
+        <Text/>
         <a
           className="App-link"
           href="https://reactjs.org"
