@@ -8,6 +8,7 @@ export default function Accordian() {
 
   function handleSingleSelection(getCurrentId) {
     setSelected(getCurrentId === selected ? null : getCurrentId);
+    console.log(getCurrentId, selected);
   }
   function handleMultiSelection(getCurrentId) {
     let copyMultiple = [...multiple];
