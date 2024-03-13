@@ -36,6 +36,9 @@ module.exports = {
       '6': '48px',
     },
     extend: {    
+      animation: {
+        'spin': 'spin 3s linear infinite',
+      },
       flexBasis: {
         '1/7': '14.2857143%',
         '2/7': '28.5714286%',
