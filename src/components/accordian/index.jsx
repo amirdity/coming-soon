@@ -3,12 +3,10 @@ import data from "./data";
 
 export default function Accordian() {
   const [selected, setSelected] = useState(null);
-  const [enableMultiSelection, setEnableMultiSelection] = useState(false);
   const [multiple, setMultiple] = useState([]);
-
+  const [enableMultiSelection, setEnableMultiSelection] = useState(false);
   function handleSingleSelection(getCurrentId) {
     setSelected(getCurrentId === selected ? null : getCurrentId);
-    console.log(getCurrentId, selected);
   }
   function handleMultiSelection(getCurrentId) {
     let copyMultiple = [...multiple];
@@ -19,46 +17,36 @@ export default function Accordian() {
   }
   return (
     <>
-      <div className="flex justify-center align-justify bg-purple-600 font-roboto text-sm">
-        <div className=" basis-5/6">
-          {data && data.length > 0 ? (
-            data.map((dataItem) => (
-              <div className="">
+      <div>
+        <div>
+          {data.length > 0
+            ? data.map((getItem) => (
                 <div
-                  className="flex align-middle m-5 justify-between  bg-cyan-500 rounded-lg p-1 cursor-zoom-in"
                   onClick={
                     enableMultiSelection
-                      ? () => handleMultiSelection(dataItem.id)
-                      : () => handleSingleSelection(dataItem.id)
+                      ? handleMultiSelection(getItem.Id)
+                      : handleSingleSelection(getItem.Id)
                   }
                 >
-                  <h3 className="">{dataItem.question}</h3>
-                  <span> + </span>
+                  {getItem.question}{" "}
+                  <div>
+                    {enableMultiSelection
+                      ? multiple.indexOf(getItem.id) !== -1 && (
+                          <div>{getItem.answer} </div>
+                        )
+                      : selected === getItem.id && <div>{getItem.answer} </div>}
+                  </div>
                 </div>
-                {enableMultiSelection
-                  ? multiple.indexOf(dataItem.id) !== -1 && (
-                      <div className="flex align-middle m-5 justify-between p-1 max-w-[90%] pl-5">
-                        {dataItem.answer}
-                      </div>
-                    )
-                  : selected === dataItem.id && (
-                      <div className="flex align-middle m-5 justify-between p-1 max-w-[90%] pl-5">
-                        {dataItem.answer}
-                      </div>
-                    )}
-              </div>
-            ))
-          ) : (
-            <div>no data found!</div>
-          )}
+              ))
+            : null}
         </div>
       </div>
-      <div className="font-roboto text-sm flex  justify-center">
+      <div>
         <button
           onClick={() => setEnableMultiSelection(!enableMultiSelection)}
-          className="bg-cyan-500 rounded-2xl p-1 px-3 mt-1 shadow-2xl shadow-blue-600/100   transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
+          className=""
         >
-          enable it and check the answers
+          enable this to see what will be happen
         </button>
       </div>
     </>

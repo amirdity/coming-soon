@@ -23,6 +23,12 @@ const data = [
     answer:
       "Yes of course, it is very possible to create an accordion component with another framework.",
   },
+  {
+    id  : '5',
+    question: "Can I create an accordion component with a different framework?",
+    answer:
+      "Yes of course, it is very possible to create an accordion component with another framework.",
+  },
 ];
 
 export default data;
