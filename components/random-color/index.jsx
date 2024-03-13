@@ -10,7 +10,7 @@ export default function RandomColor() {
 
   function handleCreateRandomHexColor() {
     // #678765
-    const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
+    const hex = [1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
     let hexColor = "#";
 
     for (let i = 0; i < 6; i++) {
@@ -34,37 +34,40 @@ export default function RandomColor() {
 
   return (
     <div
+      className="mt-5"
       style={{
-        width: "100vw",
         height: "100vh",
         background: color,
       }}
     >
-      <button onClick={() => setTypeOfColor("hex")}>Create HEX Color</button>
-      <button onClick={() => setTypeOfColor("rgb")}>Create RGB Color</button>
-      <button
-        onClick={
-          typeOfColor === "hex"
-            ? handleCreateRandomHexColor
-            : handleCreateRandomRgbColor
-        }
-      >
-        Generate Random Color
-      </button>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          color: "#fff",
-          fontSize: "60px",
-          marginTop: "50px",
-          flexDirection: "column",
-          gap: "20px",
-        }}
-      >
-        <h3>{typeOfColor === "rgb" ? "RGB Color" : "HEX Color"}</h3>
-        <h1>{color}</h1>
+      {" "}
+      <div className="w-auto h-auto flex justify-around">
+        <button
+          className=" hover:animate-spin text-cyan-50 bg-orange-600 rounded-3xl px-2 mt-3 h-6 text-sm"
+          onClick={() => setTypeOfColor("hex")}
+        >
+          Create HEX Color
+        </button>
+        <button
+          className=" hover:animate-spin text-cyan-50 bg-orange-600 rounded-3xl px-2 mt-3 h-6 text-sm"
+          onClick={() => setTypeOfColor("rgb")}
+        >
+          Create RGB Color
+        </button>
+        <button
+          className=" hover:animate-spin text-cyan-50 bg-orange-600 rounded-3xl px-2 mt-3 h-6 text-sm"
+          onClick={
+            typeOfColor === "hex"
+              ? handleCreateRandomHexColor
+              : handleCreateRandomRgbColor
+          }
+        >
+          Generate Random Color
+        </button>
+      </div>
+      <div className="flex justify-around content-center">
+        <h3 className="text-5xl mt-[50vh] text-cyan-50">{typeOfColor}</h3>
+        <h1 className="text-5xl mt-[50vh] text-cyan-50">{color}</h1>
       </div>
     </div>
   );
