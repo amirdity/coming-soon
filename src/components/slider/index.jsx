@@ -14,8 +14,10 @@ import "./style.css";
 import { EffectCoverflow, Pagination } from "swiper/modules";
 export default function Slider() {
   return (
-    <>
+    <div>
+      <p className="text-center text-sm">SLIDE</p>
       <Swiper
+        spaceBetween={30}
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
@@ -28,32 +30,32 @@ export default function Slider() {
           modifier: 1,
           slideShadows: true,
         }}
-        pagination={true}
+        pagination={{ clickable: true }}
         modules={[EffectCoverflow, Pagination]}
         className="mySwiper"
       >
         <SwiperSlide>
-          <img className="w-5" src={image1} />
+          <img src={image1} />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="w-5" src={image2} />
+          <img src={image2} />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="w-5" src={image3} />
+          <img src={image3} />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="w-5" src={image4} />
+          <img src={image4} />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="w-5" src={image5} />
+          <img src={image5} />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="w-5" src={image6} />
+          <img src={image6} />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="w-5" src={image7} />
+          <img src={image7} />
         </SwiperSlide>
       </Swiper>
-    </>
+    </div>
   );
 }
