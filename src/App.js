@@ -1,5 +1,6 @@
 import './App.css';
 import Accordian from './components/accordian';
+import LoadMore from './components/load-more/LoadMore';
 import RandomColor from './components/random-color';
 import Slider from './components/slider';
 import Star from './components/star/Star';
@@ -8,12 +9,13 @@ import Star from './components/star/Star';
 function App() {
   return (
     <div className="App">
-    {/*<Accordian/>   
+    <Accordian/>   
        <RandomColor/> 
-       <Slider/> */}
+       <Slider/> 
       <Star/>
+      <LoadMore/>
     </div>
   );
 }
-
+{/*  */}
 export default App;
