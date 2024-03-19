@@ -48,25 +48,21 @@ export default function LoadMoreData() {
         {products && products.length
           ? products.map((item) => (
               <div
-                className="flex-row inline-block m-3 flex-auto p-4 bg-cyan-300 rounded-3xl "
+                className="flex-row inline-block m-3 flex-auto p-4 bg-cyan-300 rounded-3xl"
                 key={item.id}
               >
                 <img
-                  className="w-[290px] h-[200px] rounded-3xl  object-center"
+                  className="w-[290px] h-[200px] rounded-3xl "
                   src={item.thumbnail}
                   alt={item.title}
                 />
-                <p className="text-center text-xs font-roboto">{item.title}</p>
+                <p className="text-center text-sm">{item.title}</p>
               </div>
             ))
           : null}
       </div>
       <div className="button-container">
-        <button
-          className="object-center ml-[40%] text-sm bg-cyan-400 rounded-3xl px-5 animate-bounce"
-          disabled={disableButton}
-          onClick={() => setCount(count + 1)}
-        >
+        <button disabled={disableButton} onClick={() => setCount(count + 1)}>
           Load More Products
         </button>
         {disableButton ? <p>You have reached to 100 products</p> : null}
